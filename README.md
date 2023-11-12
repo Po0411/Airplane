@@ -7,3 +7,5 @@
 
 ## 기록
 제작 과정을 기록 하는 링크 입니다.
+
+배경 만들기[https://jogkfkd.notion.site/1-92ad544aeeda411db9a4445b57c99e4a?pvs=4]
