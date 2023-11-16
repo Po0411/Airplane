@@ -28,6 +28,17 @@ public class SystemManager : MonoBehaviour
         }
         instance = this;
     }
+    //
+    [SerializeField]
+    Player player;
+
+    public  Player Hero
+    { 
+        get 
+        { 
+            return player; 
+        } 
+    }
 
     void Start()
     {

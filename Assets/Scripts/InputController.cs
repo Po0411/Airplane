@@ -19,24 +19,32 @@ public class InputController : MonoBehaviour
 
     void UpdateInput()
     {
+        Vector3 moveDirection = Vector3.zero;
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            Debug.Log("위");
+            moveDirection.y = 1;
+            //Debug.Log("위");
         }
 
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            Debug.Log("아래");
+            moveDirection.y = -1;
+            //Debug.Log("아래");
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            Debug.Log("왼쪽");
+            moveDirection.x = -1;
+            //Debug.Log("왼쪽");
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            Debug.Log("오른쪽");
+            moveDirection.x = 1;
+            //Debug.Log("오른쪽");
         }
+
+        SystemManager.Instance.Hero.ProcessInput(moveDirection);
     }
 }
