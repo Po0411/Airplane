@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -54,18 +54,18 @@ public class Enemy : MonoBehaviour
             Disappear(new Vector3(-15.0f, 0.0f, 0.0f));
         }
         */
-
+        /*
         if (Input.GetKeyDown(KeyCode.L))
         {
             Appear(new Vector3(7.0f, transform.position.y, transform.position.z));
         }
-
+        */
         switch (CurrentState)
         {
             case State.None:
             case State.Ready:
                 break;
-            case State.Dead: 
+            case State.Dead:
                 break;
             case State.Appear:
             case State.Disappear:
@@ -87,8 +87,8 @@ public class Enemy : MonoBehaviour
 
     void UpdateMove()
     {
-         float distance = Vector3.Distance(TargetPosition, transform.position);
-        if(distance == 0)
+        float distance = Vector3.Distance(TargetPosition, transform.position);
+        if (distance == 0)
         {
             Arrived();
             return;
@@ -136,10 +136,27 @@ public class Enemy : MonoBehaviour
 
     void UpdateBattle()
     {
-        if(Time.time - BruteStartTime > 3.0f)
+        if (Time.time - BruteStartTime > 3.0f)
         {
             Disappear(new Vector3(-15.0f, transform.position.y, transform.position.z));
         }
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log("other" + other.name);
+
+        Player player = other.GetComponentInParent<Player>();
+        if (player)
+        {
+            player.OnCrash(this);
+        }
+
+    }
+
+    public void OnCrash(Player player)
+    {
+        Debug.Log("OnCrash" + player.name);
+    }
 }
