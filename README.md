@@ -13,4 +13,5 @@
 3일차 ➡ [노션(입력 스크립트 제작) <code>**클릭**</code>](https://jogkfkd.notion.site/3-ce88d047699f413bb8a7a5ff71cb2ce0?pvs=4)<br>
 4일차 ➡ [노션(이동 스크립트와 외벽 스크립트) <code>**클릭**</code>](https://jogkfkd.notion.site/4-5a36a3cf9d434569a2d5bf41233c5885?pvs=4)<br>
 5일차 ➡ [노션(적 오브젝트와 스크립트 제작) <code>**클릭**</code>](https://jogkfkd.notion.site/5-300984a3ce9447bbb6d25648bddc8562?pvs=4)<br>
-6일차 ➡ [노션(적 스크립트 수정) <code>**클릭**</code>](https://jogkfkd.notion.site/6-6ab0eebbc7704a26a1b6606a50b2b561?pvs=4)
+6일차 ➡ [노션(적 스크립트 수정) <code>**클릭**</code>](https://jogkfkd.notion.site/6-6ab0eebbc7704a26a1b6606a50b2b561?pvs=4)<br>
+7일차 ➡ [노션(적 오브젝트 복제 하기) <code>**클릭**</code>](https://jogkfkd.notion.site/7-8cb2e0cecf414c2c9d1bee2fadc47efd?pvs=4)
