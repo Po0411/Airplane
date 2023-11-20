@@ -15,3 +15,5 @@
 5일차 ➡ [노션(적 오브젝트와 스크립트 제작) <code>**클릭**</code>](https://jogkfkd.notion.site/5-300984a3ce9447bbb6d25648bddc8562?pvs=4)<br>
 6일차 ➡ [노션(적 스크립트 수정) <code>**클릭**</code>](https://jogkfkd.notion.site/6-6ab0eebbc7704a26a1b6606a50b2b561?pvs=4)<br>
 7일차 ➡ [노션(적 오브젝트 복제 하기) <code>**클릭**</code>](https://jogkfkd.notion.site/7-8cb2e0cecf414c2c9d1bee2fadc47efd?pvs=4)<br>
+8일차 ➡ [노션(총알 제작) <code>**클릭**</code>](https://jogkfkd.notion.site/6-bc44b110339647b8b750f1af7c5763e2?pvs=4)<br>
+
