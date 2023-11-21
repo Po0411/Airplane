@@ -1334,6 +1334,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 264291882861081995, guid: af048e371c1209f488678e200968d6d9, type: 3}
+      propertyPath: BulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 264291882861081995, guid: af048e371c1209f488678e200968d6d9, type: 3}
       propertyPath: boxCollider
       value: 
       objectReference: {fileID: 439607342}
