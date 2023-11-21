@@ -15,6 +15,7 @@ public class InputController : MonoBehaviour
     void Update()
     {
         UpdateInput();
+        UpdateMouse();
     }
 
     void UpdateInput()
@@ -46,5 +47,13 @@ public class InputController : MonoBehaviour
         }
 
         SystemManager.Instance.Hero.ProcessInput(moveDirection);
+    }
+
+    void UpdateMouse()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SystemManager.Instance.Hero.Fire();
+        }
     }
 }

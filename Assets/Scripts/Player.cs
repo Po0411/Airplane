@@ -16,6 +16,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform MainBGQuadTransform;
 
+    [SerializeField]
+    Transform FireTransform;
+
+    [SerializeField]
+    GameObject Blluet;
+
+    [SerializeField]
+    float BulletSpeed = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,5 +89,14 @@ public class Player : MonoBehaviour
     public void OnCrash(Enemy enemy)
     {
         Debug.Log("OnCrash" + enemy.name);
+    }
+
+    public void Fire()
+    {
+        GameObject go = Instantiate(Blluet);
+
+        Bullet blluet = go.GetComponent<Bullet>();
+        blluet.Fire(OwnerSide.Player, FireTransform.position, FireTransform.right, BulletSpeed);
+
     }
 }
