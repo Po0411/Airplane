@@ -17,4 +17,4 @@
 7일차 ➡ [노션(적 오브젝트 복제 하기) <code>**클릭**</code>](https://jogkfkd.notion.site/7-8cb2e0cecf414c2c9d1bee2fadc47efd?pvs=4)<br>
 8일차 ➡ [노션(총알 제작) <code>**클릭**</code>](https://jogkfkd.notion.site/6-bc44b110339647b8b750f1af7c5763e2?pvs=4)<br>
 9일차 ➡ [노션(총알 발사 스크립트 제작) <code>**클릭**</code>](https://jogkfkd.notion.site/9-699293e39b5a48738c696b8e6dd9a0f9?pvs=4)<br>
-10일차 ➡ [노션(적 오브젝트 총알 제작 + 발사) <code>**클릭**</code>](https://jogkfkd.notion.site/C-Online-f616fa6316034a1d95dad4df31c41d39?pvs=4)<br>
+10일차 ➡ [노션(적 오브젝트 총알 제작 + 발사) <code>**클릭**</code>](https://jogkfkd.notion.site/10-7c9d8fad92bd4c26a2bba7987764d542?pvs=4)<br>
