@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Actor
 {
     [SerializeField]
     Vector3 MoveVector = Vector3.zero;
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void UpdateActor()
     {
         UpdatMove();
     }
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
         GameObject go = Instantiate(Blluet);
 
         Bullet blluet = go.GetComponent<Bullet>();
-        blluet.Fire(OwnerSide.Player, FireTransform.position, FireTransform.right, BulletSpeed);
+        blluet.Fire(OwnerSide.Player, FireTransform.position, FireTransform.right, BulletSpeed, Damage);
 
     }
 }

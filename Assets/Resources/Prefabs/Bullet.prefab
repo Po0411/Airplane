@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8987450347845100310}
   - component: {fileID: 3355831009984869160}
+  - component: {fileID: 7333582434257390466}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -47,6 +48,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveDirection: {x: 0, y: 1, z: 0}
   Speed: 0
+--- !u!54 &7333582434257390466
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767875987359880087}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4529326841452412445
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +156,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4529326841452412445}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.6
   m_Height: 0.68

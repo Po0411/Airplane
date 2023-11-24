@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Actor
 {
     public enum State : int
     {
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void UpdateActor()
     {
         /*
         if (Input.GetKeyDown(KeyCode.L))
@@ -188,7 +188,18 @@ public class Enemy : MonoBehaviour
         GameObject go = Instantiate(Blluet);
 
         Bullet blluet = go.GetComponent<Bullet>();
-        blluet.Fire(OwnerSide.Enemy, FireTransform.position, -FireTransform.right, BulletSpeed);
+        blluet.Fire(OwnerSide.Enemy, FireTransform.position, -FireTransform.right, BulletSpeed, Damage);
 
     }
+
+    /*
+    protected override void OnDead(Actor killer)
+    {
+        base.OnDead(killer);
+
+        SystemManager.Instance.GamePointAccumulator.Accumulate(GamePoint);
+
+        CurrentState = State.Dead;
+    }
+    */
 }

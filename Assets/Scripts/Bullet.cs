@@ -28,6 +28,9 @@ public class Bullet : MonoBehaviour
 
     bool Hited = false;
 
+    [SerializeField]
+    int Damage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,12 +58,13 @@ public class Bullet : MonoBehaviour
         transform.position += moveVector; 
     }
 
-    public void Fire(OwnerSide FireOwner, Vector3 firePosition, Vector3 direction, float speed)
+    public void Fire(OwnerSide FireOwner, Vector3 firePosition, Vector3 direction, float speed, int damage)
     {
         ownerSde = FireOwner;
         transform.position = firePosition;
         MoveDirection = direction;
         Speed = speed;
+        Damage = damage;
 
         NeedMove = true;
         FiredTime = Time.time;
@@ -82,6 +86,30 @@ public class Bullet : MonoBehaviour
     void OnBulletCollision(Collider collider)
     {
         if (Hited)
+        {
+            return;
+        }
+
+        if(ownerSde == OwnerSide.Player)
+        {
+            Enemy enemy = collider.GetComponentInParent<Enemy>();
+            if (enemy.IsDead)
+                return;
+
+            enemy.OnBulletHited(Damage);
+        }
+        else
+        {
+            Player player = collider.GetComponentInParent<Player>();
+            if (player.IsDead)
+                return;
+
+            player.OnBulletHited(Damage);
+        }
+
+
+        if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyBullet")
+            || collider.gameObject.layer == LayerMask.NameToLayer("PlayerBullet"))
         {
             return;
         }

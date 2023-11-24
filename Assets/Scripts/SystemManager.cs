@@ -17,6 +17,32 @@ public class SystemManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    Player player;
+
+    public Player Hero
+    {
+        get
+        {
+            if(!player)
+            {
+                Debug.LogError("Main Player is not setted!");
+            }
+
+            return player;
+        }
+    }
+
+    GamePointAccumulator gamePointAccumulator = new GamePointAccumulator();
+
+    public GamePointAccumulator GamePointAccumulator
+    {
+        get
+        {
+            return gamePointAccumulator;
+        }
+    }
+
     void Awake()
     {
         // 유일하게 존재할 수 있도록 에러 처리
@@ -27,18 +53,11 @@ public class SystemManager : MonoBehaviour
             return;
         }
         instance = this;
-    }
-    //
-    [SerializeField]
-    Player player;
 
-    public  Player Hero
-    { 
-        get 
-        { 
-            return player; 
-        } 
+        // Scene 이동간에 사라지지 않도록 처리
+        DontDestroyOnLoad(gameObject);
     }
+
 
     void Start()
     {
