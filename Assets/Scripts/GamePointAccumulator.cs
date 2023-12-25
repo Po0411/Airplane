@@ -17,6 +17,7 @@ public class GamePointAccumulator
     public void Accumulate(int value)
     {
         gamePoint += value;
+        Debug.Log("Accumulate gamePoint = " + gamePoint);
     }
 
     public void Reset()

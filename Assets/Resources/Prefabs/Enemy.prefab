@@ -57,9 +57,10 @@ MonoBehaviour:
   TargetPosition: {x: 0, y: 0, z: 0}
   CurrentSpeed: 0
   FireTransform: {fileID: 3699769005661987148}
-  Blluet: {fileID: 3767875987359880087, guid: 46d67ae4aa383cb488d9acf26cbfb658, type: 3}
+  Bullet: {fileID: 3767875987359880087, guid: 46d67ae4aa383cb488d9acf26cbfb658, type: 3}
   BulletSpeed: 10
   FireRemainCount: 3
+  GamePoint: 10
 --- !u!54 &6648828074815727689
 Rigidbody:
   m_ObjectHideFlags: 0

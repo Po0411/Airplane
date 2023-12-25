@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +35,6 @@ public class Actor : MonoBehaviour
         }
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -59,19 +57,19 @@ public class Actor : MonoBehaviour
 
     }
 
-    public virtual void OnBulletHited(/*Actor attacker, */int damage)
+    public virtual void OnBulletHited(Actor attacker, int damage)
     {
         Debug.Log("OnBulletHited damage = " + damage);
-        DecreaseHP(/*attacker,*/ damage);
+        DecreaseHP(attacker, damage);
     }
 
-    public virtual void OnCrash(/*Actor attacker,*/ int damage)
+    public virtual void OnCrash(Actor attacker, int damage)
     {
-        Debug.Log(/*"OnCrash attacker = " + attacker.name + */", damage" + damage);
-        DecreaseHP(/*attacker,*/ damage);
+        Debug.Log("OnCrash attacker = " + attacker.name + ", damage = " + damage);
+        DecreaseHP(attacker, damage);
     }
 
-    void DecreaseHP(/*Actor attacker,*/ int value)
+    void DecreaseHP(Actor attacker, int value)
     {
         if (isDead)
             return;
@@ -83,13 +81,17 @@ public class Actor : MonoBehaviour
 
         if (CurrentHP == 0)
         {
-            OnDead(/*attacker*/);
+            OnDead(attacker);
         }
+
     }
 
-    protected virtual void OnDead(/*Actor killer*/)
+    protected virtual void OnDead(Actor killer)
     {
         Debug.Log(name + " OnDead");
         isDead = true;
+
     }
+
+
 }
