@@ -1,11 +1,15 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
-public class CFX_AutoDestructShuriken : MonoBehaviour
+public class AutoCachableEffect : MonoBehaviour
 {
-    public bool OnlyDeactivate;
-
+    public string FilePath
+    {
+        get;
+        set;
+    }
     void OnEnable()
     {
         StartCoroutine("CheckIfAlive");
@@ -18,16 +22,8 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             if (!GetComponent<ParticleSystem>().IsAlive(true))
             {
-                if (OnlyDeactivate)
-                {
-#if UNITY_3_5
-						this.gameObject.SetActiveRecursively(false);
-#else
-                    this.gameObject.SetActive(false);
-#endif
-                }
-                else
-                    GameObject.Destroy(this.gameObject);
+
+                SystemManager.Instance.EffectManager.RemoveEffect(this);
                 break;
             }
         }

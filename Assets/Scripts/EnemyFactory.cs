@@ -11,14 +11,15 @@ public class EnemyFactory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
 
     public GameObject Load(string resourcePath)
     {
@@ -41,7 +42,7 @@ public class EnemyFactory : MonoBehaviour
             EnemyFileCache.Add(resourcePath, go);
         }
 
-        GameObject InstancedGO = Instantiate<GameObject>(go);
-        return InstancedGO;
+        return go;
     }
+
 }
