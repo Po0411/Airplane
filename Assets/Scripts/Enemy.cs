@@ -132,21 +132,25 @@ public class Enemy : Actor
         else // if (CurrentState == State.Disappear)
         {
             CurrentState = State.None;
-            SystemManager.Instance.EnemyManager.RemoveEnemy(this);
+            SystemManager.Instance.GetCurrentSceneMain<InGameSceneMain>().EnemyManager.RemoveEnemy(this);
         }
     }
 
-    public void Reset(EnemyGenerateData data)
+    public void Reset(SquadronMemberStruct data)
     {
-        CurrentHP = MaxHP = data.MaxHP;             // CurrentHP까지 다시 입력
-        Damage = data.Damage;                       // 총알 데미지
-        crashDamage = data.CrashDamage;             // 충돌 데미지
-        BulletSpeed = data.BulletSpeed;             // 총알 속도
-        FireRemainCount = data.FireRemainCount;     // 발사할 총알 갯수
-        GamePoint = data.GamePoint;                 // 파괴시 얻을 점수
+        EnemyStruct enemyStruct = SystemManager.Instance.EnemyTable.GetEnemy(data.EnemyID);
 
-        AppearPoint = data.AppearPoint;             // 입장시 도착 위치 
-        DisappearPoint = data.DisappearPoint;       // 퇴장시 목표 위치
+
+
+        CurrentHP = MaxHP = enemyStruct.MaxHP;             // CurrentHP까지 다시 입력
+        Damage = enemyStruct.Damage;                       // 총알 데미지
+        crashDamage = enemyStruct.CrashDamage;             // 충돌 데미지
+        BulletSpeed = enemyStruct.BulletSpeed;             // 총알 속도
+        FireRemainCount = enemyStruct.FireRemainCount;     // 발사할 총알 갯수
+        GamePoint = enemyStruct.GamePoint;                 // 파괴시 얻을 점수
+
+        AppearPoint = new Vector3(data.AppearPointX, data.AppearPointY, 0);             // 입장시 도착 위치 
+        DisappearPoint = new Vector3(data.DisappearPointX, data.DisappearPointY, 0);    // 퇴장시 목표 위치
 
         CurrentState = State.Ready;
         LastActionUpdateTime = Time.time;
@@ -219,7 +223,7 @@ public class Enemy : Actor
 
     public void Fire()
     {
-        Bullet bullet = SystemManager.Instance.BulletManager.Generate(BulletManager.EnemyBulletIndex);
+        Bullet bullet = SystemManager.Instance.GetCurrentSceneMain<InGameSceneMain>().BulletManager.Generate(BulletManager.EnemyBulletIndex);
         bullet.Fire(this, FireTransform.position, -FireTransform.right, BulletSpeed, Damage);
     }
 
@@ -227,8 +231,8 @@ public class Enemy : Actor
     {
         base.OnDead(killer);
 
-        SystemManager.Instance.GamePointAccumulator.Accumulate(GamePoint);
-        SystemManager.Instance.EnemyManager.RemoveEnemy(this);
+        SystemManager.Instance.GetCurrentSceneMain<InGameSceneMain>().GamePointAccumulator.Accumulate(GamePoint);
+        SystemManager.Instance.GetCurrentSceneMain<InGameSceneMain>().EnemyManager.RemoveEnemy(this);
 
         CurrentState = State.Dead;
 
@@ -239,6 +243,6 @@ public class Enemy : Actor
         base.DecreaseHP(attacker, value, damagePos);
 
         Vector3 damagePoint = damagePos + Random.insideUnitSphere * 0.5f;
-        SystemManager.Instance.DamageManager.Generate(DamageManager.EnemyDamageIndex, damagePoint, value, Color.magenta);
+        SystemManager.Instance.GetCurrentSceneMain<InGameSceneMain>().DamageManager.Generate(DamageManager.EnemyDamageIndex, damagePoint, value, Color.magenta);
     }
 }
